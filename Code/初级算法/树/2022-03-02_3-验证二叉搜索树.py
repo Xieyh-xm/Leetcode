@@ -31,6 +31,6 @@ class Solution:
     def isValidBST_sub(self, root, min=float('-inf'), max=float('inf')):
         if root == None:
             return True
-        if min > root.val or root.val > max:
+        if min >= root.val or root.val >= max:
             return False
         return self.isValidBST_sub(root.left, min, root.val) and self.isValidBST_sub(root.right, root.val, max)
