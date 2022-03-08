@@ -8,5 +8,13 @@
 ---------------------------------------------
 '''
 
+
 class Solution:
     def hammingDistance(self, x: int, y: int) -> int:
+        '''先异或，然后对1计数'''
+        z = x ^ y
+        ans = 0
+        while z:
+            ans += z & 1
+            z = z >> 1
+        return ans
