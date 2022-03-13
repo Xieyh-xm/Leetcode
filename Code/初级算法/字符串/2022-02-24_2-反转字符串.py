@@ -14,9 +14,15 @@ class Solution:
         """
         Do not return anything, modify s in-place instead.
         """
+        # 'str' object does not support item assignment 有问题
         for i in range(int(len(s) / 2)):
             temp = s[-i - 1]
             s[-i - 1] = s[i]
             s[i] = temp
 
         '''还可以试一下双指针...'''
+
+
+if __name__ == '__main__':
+    solution = Solution()
+    print(solution.reverseString("abc"))
