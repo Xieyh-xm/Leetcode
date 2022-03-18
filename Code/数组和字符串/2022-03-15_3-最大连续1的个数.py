@@ -12,3 +12,10 @@ from typing import List
 
 class Solution:
     def findMaxConsecutiveOnes(self, nums: List[int]) -> int:
+        maxLength, zero_index = 0, -1
+        for i, num in enumerate(nums):
+            if num == 1:
+                maxLength = max(maxLength, i - zero_index)
+            else:
+                zero_index = i
+        return maxLength

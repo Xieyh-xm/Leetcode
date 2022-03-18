@@ -14,3 +14,22 @@ from typing import List
 
 class Solution:
     def twoSum(self, numbers: List[int], target: int) -> List[int]:
+        '''方法一：哈希表'''
+        # dict = {}
+        # ans = []
+        # for i, num in enumerate(numbers):
+        #     if target - num in dict:
+        #         ans.append(dict[target - num] + 1)
+        #         ans.append(i + 1)
+        #     else:
+        #         dict[num] = i
+        # return ans
+        '''方法二：相向而行的双指针'''
+        index_left, index_right = 0, len(numbers) - 1
+        while index_left <= index_right:
+            if numbers[index_left] + numbers[index_right] < target:
+                index_left += 1
+            elif numbers[index_left] + numbers[index_right] > target:
+                index_right -= 1
+            else:
+                return [index_left + 1, index_right + 1]
