@@ -17,7 +17,21 @@ class TreeNode:
         self.right = right
 
 
+import collections
+from platform import node
 from typing import List, Optional
 
 class Solution:
     def findDuplicateSubtrees(self, root: Optional[TreeNode]) -> List[Optional[TreeNode]]:
+        count=collections.Counter()
+        ans=[]
+        def similarTree(node:TreeNode):
+            if node==None:return "#"
+            serial="{},{},{}".format(node.val,similarTree(node.left),similarTree(node.right))
+            count[serial]+=1
+            if count==2:
+                ans.append(node)
+        similarTree(root)
+        return ans
+
+        
