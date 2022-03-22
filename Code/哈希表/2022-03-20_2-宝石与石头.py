@@ -9,7 +9,6 @@ stones 中每个字符代表了一种你拥有的石头的类型，你想知道�
 输出：3
 '''
 
-from itertools import count
 
 
 class Solution:
