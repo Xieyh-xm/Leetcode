@@ -7,5 +7,20 @@
 输出：false
 '''
 
+
 class Solution:
     def isPerfectSquare(self, num: int) -> bool:
+        lo, hi = 1, num
+        while lo <= hi:
+            mid = lo+(hi-lo)//2
+            if num / mid == mid:
+                return True
+            elif num/mid < mid:
+                hi = mid-1
+            elif num/mid > mid:
+                lo = mid+1
+        return False
+
+if __name__=='__main__':
+    s=Solution()
+    print(s.isPerfectSquare(14))
