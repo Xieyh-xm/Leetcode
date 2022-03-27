@@ -9,7 +9,6 @@
 输出：[1,2,3,4]
 '''
 
-from ast import Num
 from tkinter import N
 from typing import List
 

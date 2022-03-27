@@ -9,9 +9,16 @@
 输入: letters = ["c","f","j"], target = "d"
 输出: "f"
 '''
+import bisect
 from typing import List
 
+'''找最小值？'''
 
 class Solution:
     def nextGreatestLetter(self, letters: List[str], target: str) -> str:
-        pass
+        index = bisect.bisect(letters, target)
+        return letters[index % len(letters)]
+
+if __name__=='__main__':
+    s=Solution()
+    print(s.nextGreatestLetter(["e","e","e","k","q","q","q","v","v","y"],"a"))
