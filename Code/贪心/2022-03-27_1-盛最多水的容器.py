@@ -13,4 +13,23 @@ from typing import List
 
 class Solution:
     def maxArea(self, height: List[int]) -> int:
-        pass
+        '''----- 双指针 -----'''
+        def calArea(l:int,r:int)->int:
+            return (r-l)*min(height[l],height[r])
+        
+        lo,hi=0,len(height)-1
+        ans=0
+        while lo<hi:
+            cur=calArea(lo,hi)
+            ans=max(ans,cur)
+            # 即无论我们怎么移动右指针，得到的容器的容量都小于移动前容器的容量。
+            # 也就是说，这个左指针对应的数不会作为容器的边界了
+            if height[lo]<height[hi]:
+                lo+=1
+            else:
+                hi-=1
+        return ans
+
+if __name__=='__main__':
+    s=Solution()
+    print(s.maxArea([2,3,4,5,18,17,6]))
