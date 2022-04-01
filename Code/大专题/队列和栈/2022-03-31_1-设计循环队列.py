@@ -35,7 +35,7 @@ class MyCircularQueue:
             return False
         else:
             self.head = (self.head+1) % self.queueLength
-            self.curLengths-=1
+            self.curLength-=1
             return True
 
     def Front(self) -> int:
