@@ -40,6 +40,7 @@ class Solution:
         return ret
         
 '''前缀和'''
+# 带记忆的搜索
 # 哈希表永远存储的是当前这条路径上的前缀和
 class Solution:
     def pathSum(self, root: TreeNode, targetSum: int) -> int:
