@@ -13,6 +13,18 @@ class TreeNode:
         self.left = None
         self.right = None
 
+'''特点在于是二叉搜索树，可以直接通过判断谁大谁小来知道节点在哪半边'''
 class Solution:
     def lowestCommonAncestor(self, root: 'TreeNode', p: 'TreeNode', q: 'TreeNode') -> 'TreeNode':
-        pass
+        if root ==None or root==p or root==q:
+            return root
+        # 按照上述规则继续往下找
+        left=self.lowestCommonAncestor(root.left,p,q)
+        right=self.lowestCommonAncestor(root.right,p,q)
+        if left==None:
+            return right
+        elif right==None:
+            return left
+        else:
+            return root
+        
